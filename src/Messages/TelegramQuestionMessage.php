@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace BotMan\Drivers\Telegram\Messages;
 
 class TelegramQuestionMessage
 {

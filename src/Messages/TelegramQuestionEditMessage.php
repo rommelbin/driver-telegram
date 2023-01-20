@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Services;
+namespace BotMan\Drivers\Telegram\Messages;
 
-namespace App\Services;
 
 class TelegramQuestionEditMessage extends TelegramQuestionMessage {
     public function setMessageId($message_id)
