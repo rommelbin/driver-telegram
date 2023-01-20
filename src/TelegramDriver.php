@@ -2,6 +2,8 @@
 
 namespace BotMan\Drivers\Telegram;
 
+use App\Services\TelegramQuestionEditMessage;
+use App\Services\TelegramQuestionMessage;
 use BotMan\Drivers\Telegram\Exceptions\TelegramConnectionException;
 use Illuminate\Support\Collection;
 use BotMan\BotMan\Drivers\HttpDriver;
@@ -391,6 +393,14 @@ class TelegramDriver extends HttpDriver
             } else {
                 $parameters['text'] = $message->getText();
             }
+        } else if ($message instanceof TelegramQuestionEditMessage) {
+            $parameters['message_id'] = $message->getMessageId();
+            $parameters['text'] = $message->getText();
+            $this->endpoint = 'editMessageText';
+            $parameters['reply_markup'] = $message->getReplyMarkup();
+        } else if ($message instanceof TelegramQuestionMessage) {
+            $parameters['text'] = $message->getText();
+            $parameters['reply_markup'] = $message->getReplyMarkup();
         } else {
             $parameters['text'] = $message;
         }
