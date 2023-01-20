@@ -2,8 +2,8 @@
 
 namespace BotMan\Drivers\Telegram;
 
-use App\Services\TelegramQuestionEditMessage;
-use App\Services\TelegramQuestionMessage;
+use BotMan\Drivers\Telegram\Messages\TelegramQuestionEditMessage;
+use BotMan\Drivers\Telegram\Messages\TelegramQuestionMessage;
 use BotMan\Drivers\Telegram\Exceptions\TelegramConnectionException;
 use Illuminate\Support\Collection;
 use BotMan\BotMan\Drivers\HttpDriver;
